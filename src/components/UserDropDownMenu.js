@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 
-function UserDropDownMenu() {
-  let users = [
-    { label: 'Jenna', value: 'Jenna' },
-    { label: 'Ari', value: 'Ari' },
-    { label: 'Nate', value: 'Nate' },
-  ];
+function UserDropDownMenu({ users }) {
+  const [user, setUser] = useState('Select a user');
 
-  let [user, setUser] = useState('Select a user');
-
-  let handleUserChange = (e) => {
+  const handleUserChange = (e) => {
     setUser(e.target.value);
   };
 
@@ -21,8 +15,8 @@ function UserDropDownMenu() {
       <select onChange={handleUserChange}>
         <option value='Select a user'> Select a user </option>
         {users.map((user) => (
-          <option key={user.label} value={user.value}>
-            {user.label}
+          <option key={user.id} value={user.name}>
+            {user.name}
           </option>
         ))}
       </select>
