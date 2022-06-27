@@ -32,6 +32,13 @@ function Home() {
     setOffers(updatedOfferArray);
   }
 
+  function handleOnDeleteOffer(deletedOffer) {
+    const adjustedOfferArray = offers.filter(
+      (offer) => offer.id !== deletedOffer
+    );
+    setOffers(adjustedOfferArray);
+  }
+
   return (
     <div className='home'>
       <Header />
@@ -42,7 +49,11 @@ function Home() {
       />
       <Instructions />
       <NewOfferForm onAddNewOffer={handleOffer} currentUser={currentUser} />
-      <OfferPostingBoard offers={offers} currentUser={currentUser} />
+      <OfferPostingBoard
+        offers={offers}
+        currentUser={currentUser}
+        deleteOffer={handleOnDeleteOffer}
+      />
     </div>
   );
 }

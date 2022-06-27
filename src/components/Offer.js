@@ -2,13 +2,20 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import './Offer.css';
 
-function Offer({ offer, onDeleteOffer, currentUser }) {
+function Offer({
+  id,
+  category,
+  description,
+  quantity,
+  gardener,
+  onDeleteOffer,
+}) {
   function handleDelete() {
-    fetch(`http://localhost:9292/produce_offerings/${offer.id}`, {
+    fetch(`http://localhost:9292/produce_offerings/${id}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())
-      .then((deletedOffer) => onDeleteOffer(deletedOffer));
+      .then(() => onDeleteOffer(id));
   }
 
   return (
@@ -16,25 +23,25 @@ function Offer({ offer, onDeleteOffer, currentUser }) {
       <h3>
         Category:
         <br />
-        {offer.category}
+        {category}
       </h3>
       <h3>
         Description:
         <br />
-        {offer.description}
+        {description}
       </h3>
       <h3>
         Quantity:
         <br />
-        {offer.quantity}
+        {quantity}
       </h3>
       <h3>
         Gardener:
         <br />
-        {offer.user_id}
+        {gardener}
       </h3>
       <button className='offer_delete-button' onClick={handleDelete}>
-        delete offer
+        remove offer
       </button>
     </div>
   );
