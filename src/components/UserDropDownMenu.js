@@ -2,7 +2,7 @@ import React from 'react';
 
 function UserDropDownMenu({ users, currentUser, onUserChange }) {
   function handleUserChange(e) {
-    let selectedUser = e.target.value;
+    const selectedUser = e.target.value;
     onUserChange(selectedUser);
   }
 
@@ -12,7 +12,7 @@ function UserDropDownMenu({ users, currentUser, onUserChange }) {
       <br />
 
       <select onChange={handleUserChange}>
-        <option value='friend'> Select a user </option>
+        <option> Select a user </option>
         {users.map((currentUser) => (
           <option key={currentUser.id}>{currentUser.name}</option>
         ))}

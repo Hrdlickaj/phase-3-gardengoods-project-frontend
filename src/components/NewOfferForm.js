@@ -5,8 +5,6 @@ function NewOfferForm({ onAddNewOffer, currentUser }) {
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState('');
 
-  const userId = currentUser.id;
-
   function handleSubmit(e) {
     e.preventDefault();
     fetch('http://localhost:9292/produce_offerings', {
@@ -18,7 +16,6 @@ function NewOfferForm({ onAddNewOffer, currentUser }) {
         category: category,
         description: description,
         quantity: quantity,
-        user_id: userId,
       }),
     })
       .then((response) => response.json())

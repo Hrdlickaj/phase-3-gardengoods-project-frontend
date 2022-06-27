@@ -1,7 +1,12 @@
 import React from 'react';
 import Offer from './Offer.js';
 
-function OfferPostingBoard({ offers, currentUser, deleteOffer }) {
+function OfferPostingBoard({
+  offers,
+  currentUser,
+  deleteOffer,
+  decreaseQuantity,
+}) {
   const offerPostings = offers.map((offer) => {
     return (
       <Offer
@@ -13,6 +18,7 @@ function OfferPostingBoard({ offers, currentUser, deleteOffer }) {
         gardener={offer.user_id}
         currentUser={currentUser}
         onDeleteOffer={deleteOffer}
+        onDecreaseQuantity={decreaseQuantity}
       />
     );
   });

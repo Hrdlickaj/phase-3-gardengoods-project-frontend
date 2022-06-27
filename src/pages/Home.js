@@ -27,14 +27,21 @@ function Home() {
     setCurrentUser(selectedUser);
   }
 
-  function handleOffer(newOffer) {
+  function handleAddNewOffer(newOffer) {
     const updatedOfferArray = [...offers, newOffer];
     setOffers(updatedOfferArray);
   }
 
-  function handleOnDeleteOffer(deletedOffer) {
-    const adjustedOfferArray = offers.filter(
+  function handleDeleteOffer(deletedOffer) {
+    const reducedOfferArray = offers.filter(
       (offer) => offer.id !== deletedOffer
+    );
+    setOffers(reducedOfferArray);
+  }
+
+  function handleDecreaseQuantity(updatedQuantity) {
+    const adjustedOfferArray = offers.map((offer) =>
+      offer.id === updatedQuantity.id ? updatedQuantity : offer
     );
     setOffers(adjustedOfferArray);
   }
@@ -48,11 +55,15 @@ function Home() {
         currentUser={currentUser}
       />
       <Instructions />
-      <NewOfferForm onAddNewOffer={handleOffer} currentUser={currentUser} />
+      <NewOfferForm
+        onAddNewOffer={handleAddNewOffer}
+        currentUser={currentUser}
+      />
       <OfferPostingBoard
         offers={offers}
         currentUser={currentUser}
-        deleteOffer={handleOnDeleteOffer}
+        deleteOffer={handleDeleteOffer}
+        decreaseQuantity={handleDecreaseQuantity}
       />
     </div>
   );
