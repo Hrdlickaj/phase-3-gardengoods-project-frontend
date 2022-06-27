@@ -7,5 +7,5 @@ Welcome to GardenGoods! This full-stack app was built with a React frontend and 
 Frontend Setup
 Once open, please run npm install and npm start to get the app up and running.
 
-The backend file can be found on GitHub:
+The backend file can be found on GitHub: https://github.com/Hrdlickaj/phase-3-gardengoods-project-backend
 Please run bundle install and bundle exec rake server to ensure a seamless setup.
