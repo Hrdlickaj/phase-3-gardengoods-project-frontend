@@ -1,6 +1,6 @@
 ## GardenGoods Phase-3 Project Frontend
 
-Welcome to GardenGoods! This full-stack app was built with a React frontend and a Ruby backend to practice utilizing Active Record and CRUD capabilities. It is intended to be used by small community garden communities. The user profile dropdown is pre-seeded based on member information. The photo below shows John's post that they may now decrease their quantity as they share their produce, or remove their listing as they see fit. All CRUD actions persist on the backend.
+Welcome to GardenGoods! This full-stack app was built with a React frontend and a Ruby backend to practice utilizing Active Record and CRUD capabilities. It is intended to be used by small community garden communities to encourage produce sharing/swapping. The user profile dropdown located in the top right of the screen is pre-seeded based on member information. Once a profile is selected, the user may fill out the form and all posts will be attributed to their profile. As shown below, John has one post that they may now decrease the quantity as they share their produce, or remove their listing as they see fit. All CRUD actions persist on the backend.
 
 ![](src/GardenGoods-Frontend-Screenshot.png)
 
