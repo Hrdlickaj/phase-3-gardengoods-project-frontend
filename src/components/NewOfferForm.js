@@ -5,11 +5,13 @@ function NewOfferForm({ onAddNewOffer }) {
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState('');
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
     fetch('http://localhost:9292/produce_offerings', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         category: category,
         description: description,
@@ -22,27 +24,37 @@ function NewOfferForm({ onAddNewOffer }) {
     setCategory('');
     setDescription('');
     setQuantity('');
-  };
+  }
 
   return (
-    <form className='new-offer-form' onSubmit={handleSubmit}>
-      <input
-        placeholder='Category'
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      />
-      <input
-        placeholder='Description'
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <input
-        placeholder='Quantity'
-        value={quantity}
-        onChange={(e) => setQuantity(e.target.value)}
-      />
-      <input type='submit' value='Post your produce offer!' />
-    </form>
+    <div className='new-offer-form'>
+      <h3>Post your extra produce!</h3>
+      <form onSubmit={handleSubmit}>
+        <input
+          type='text'
+          name='category'
+          placeholder='Category'
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        />
+        <input
+          type='text'
+          name='description'
+          placeholder='Description'
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <input
+          type='number'
+          name='quantity'
+          step='1'
+          placeholder='Quantity'
+          value={quantity}
+          onChange={(e) => setQuantity(parseFloat(e.target.value))}
+        />
+        <button type='submit'>Submit</button>
+      </form>
+    </div>
   );
 }
 

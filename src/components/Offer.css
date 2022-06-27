@@ -1,13 +1,13 @@
 .offer {
     background-color: #99b27f;
-    margin: 20px 10px 20px;
-    width: 35vw;
+    margin: 20px 5px 5px;
+    width: 25vw;
     border-style: solid;
     border-width: 1px;
     background-image: url("../marjan-blan-marjanblan-_kUxT8WkoeY-unsplash.jpg");
     background-size: cover;
     border-radius: 30px;
-    text-align: left;
+    text-align: center;
     opacity: .9;
 }
 

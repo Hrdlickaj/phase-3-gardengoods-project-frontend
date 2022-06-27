@@ -1,7 +1,12 @@
 body {
     font-family: monospace;
-    background-color: #734444;
+    background-color: #eeedbe;
     background-image: url("../kristen-kaethler-lrfpHmuYj88-unsplash.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.user-drop-down-menu {
+    position: relative;
+    float: right;
 }

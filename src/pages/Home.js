@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header.js';
+import Instructions from '../components/Instructions.js';
 import UserDropDownMenu from '../components/UserDropDownMenu.js';
 import NewOfferForm from '../components/NewOfferForm.js';
 import OfferPostingBoard from '../components/OfferPostingBoard.js';
@@ -21,15 +22,11 @@ function Home() {
       .then(setUsers);
   }, []);
 
-  function handleAddNewOffer(newOffer) {
-    const updatedOffers = [...offers, newOffer];
-    setOffers(updatedOffers);
-  }
-
   return (
     <div className='home'>
       <Header />
       <UserDropDownMenu users={users} />
+      <Instructions />
       <NewOfferForm />
       <OfferPostingBoard offers={offers} />
     </div>
