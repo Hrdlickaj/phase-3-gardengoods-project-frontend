@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import './Offer.css';
 
-function Offer({ offer, onDeleteOffer, onEditOffer }) {
+function Offer({ offer, onDeleteOffer, currentUser }) {
   function handleDelete() {
     fetch(`http://localhost:9292/produce_offerings/${offer.id}`, {
       method: 'DELETE',

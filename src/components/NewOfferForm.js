@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function NewOfferForm({ onAddNewOffer }) {
+function NewOfferForm({ onAddNewOffer, currentUser }) {
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -16,6 +16,7 @@ function NewOfferForm({ onAddNewOffer }) {
         category: category,
         description: description,
         quantity: quantity,
+        user_id: currentUser.id,
       }),
     })
       .then((response) => response.json())

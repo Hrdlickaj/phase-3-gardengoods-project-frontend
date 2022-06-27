@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function UserDropDownMenu({ users, currentUser, onUserChange }) {
   function handleUserChange(e) {
@@ -14,9 +14,7 @@ function UserDropDownMenu({ users, currentUser, onUserChange }) {
       <select onChange={handleUserChange}>
         <option value='friend'> Select a user </option>
         {users.map((currentUser) => (
-          <option key={currentUser.id} value={currentUser.name}>
-            {currentUser.name}
-          </option>
+          <option key={currentUser.id}>{currentUser.name}</option>
         ))}
       </select>
     </div>

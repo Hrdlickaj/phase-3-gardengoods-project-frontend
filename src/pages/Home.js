@@ -9,7 +9,7 @@ import './Home.css';
 function Home() {
   const [offers, setOffers] = useState([]);
   const [users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState('friend');
+  const [currentUser, setCurrentUser] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:9292/produce_offerings')
@@ -23,8 +23,13 @@ function Home() {
       .then(setUsers);
   }, []);
 
-  function onUserChange(selectedUser) {
+  function updateCurrentUser(selectedUser) {
     setCurrentUser(selectedUser);
+  }
+
+  function handleOffer(newOffer) {
+    const updatedOfferArray = [...offers, newOffer];
+    setOffers(updatedOfferArray);
   }
 
   return (
@@ -32,12 +37,12 @@ function Home() {
       <Header />
       <UserDropDownMenu
         users={users}
-        onUserChange={onUserChange}
+        onUserChange={updateCurrentUser}
         currentUser={currentUser}
       />
       <Instructions />
-      <NewOfferForm />
-      <OfferPostingBoard offers={offers} />
+      <NewOfferForm onAddNewOffer={handleOffer} currentUser={currentUser} />
+      <OfferPostingBoard offers={offers} currentUser={currentUser} />
     </div>
   );
 }
