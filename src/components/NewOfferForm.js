@@ -16,6 +16,7 @@ function NewOfferForm({ onAddNewOffer, currentUser }) {
         category: category,
         description: description,
         quantity: quantity,
+        user_id: currentUser.id,
       }),
     })
       .then((response) => response.json())

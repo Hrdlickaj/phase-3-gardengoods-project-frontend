@@ -9,7 +9,7 @@ import './Home.css';
 function Home() {
   const [offers, setOffers] = useState([]);
   const [users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState([]);
+  const [currentUser, setCurrentUser] = useState({ name: 'friend' });
 
   useEffect(() => {
     fetch('http://localhost:9292/produce_offerings')
@@ -20,11 +20,14 @@ function Home() {
   useEffect(() => {
     fetch('http://localhost:9292/users')
       .then((response) => response.json())
-      .then(setUsers);
+      .then((users) => setUsers(users));
   }, []);
 
+  //console.log(users);
+
   function updateCurrentUser(selectedUser) {
-    setCurrentUser(selectedUser);
+    const targetedUser = users.find((user) => user.id == selectedUser);
+    setCurrentUser(targetedUser);
   }
 
   function handleAddNewOffer(newOffer) {
@@ -61,6 +64,7 @@ function Home() {
       />
       <OfferPostingBoard
         offers={offers}
+        users={users}
         currentUser={currentUser}
         deleteOffer={handleDeleteOffer}
         decreaseQuantity={handleDecreaseQuantity}

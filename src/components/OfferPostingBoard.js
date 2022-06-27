@@ -3,6 +3,7 @@ import Offer from './Offer.js';
 
 function OfferPostingBoard({
   offers,
+  users,
   currentUser,
   deleteOffer,
   decreaseQuantity,
@@ -10,15 +11,11 @@ function OfferPostingBoard({
   const offerPostings = offers.map((offer) => {
     return (
       <Offer
-        key={offer.id}
-        id={offer.id}
-        category={offer.category}
-        description={offer.description}
-        quantity={offer.quantity}
-        gardener={offer.user_id}
+        offer={offer}
         currentUser={currentUser}
         onDeleteOffer={deleteOffer}
         onDecreaseQuantity={decreaseQuantity}
+        users={users}
       />
     );
   });

@@ -31,6 +31,10 @@ header {
     margin-right: 10px;
 }
 
+.user-drop-down-menu_h3 {
+    color: whitesmoke;
+}
+
 .offer-posting-board {
     margin-top: 20px;
     display: flex;
