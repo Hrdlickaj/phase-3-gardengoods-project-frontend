@@ -9,6 +9,7 @@ import './Home.css';
 function Home() {
   const [offers, setOffers] = useState([]);
   const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState('friend');
 
   useEffect(() => {
     fetch('http://localhost:9292/produce_offerings')
@@ -22,10 +23,18 @@ function Home() {
       .then(setUsers);
   }, []);
 
+  function onUserChange(selectedUser) {
+    setCurrentUser(selectedUser);
+  }
+
   return (
     <div className='home'>
       <Header />
-      <UserDropDownMenu users={users} />
+      <UserDropDownMenu
+        users={users}
+        onUserChange={onUserChange}
+        currentUser={currentUser}
+      />
       <Instructions />
       <NewOfferForm />
       <OfferPostingBoard offers={offers} />

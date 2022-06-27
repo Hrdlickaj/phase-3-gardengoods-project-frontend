@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import './Offer.css';
 
@@ -30,6 +31,7 @@ function Offer({ offer, onDeleteOffer, onEditOffer }) {
       <h3>
         Gardener:
         <br />
+        {offer.user_id}
       </h3>
       <button className='offer_delete-button' onClick={handleDelete}>
         delete offer
